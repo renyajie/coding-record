@@ -22,6 +22,7 @@ a brief records about some useful operations in git.
         7.4 giy reset HEAD xxx: 将暂存区的修改撤销掉，重新放回工作区
     8. git checkout -- xxx: 将工作区的xxx修改(添加修改,甚至是删除)回退到最近commit(未添加进暂存区)或add(已添加进暂存区)状态
     9. git rm xxx: 从仓库中删除xxx文件
+	10. git rebase: 将本地未push的操作整理成一条直线
 
 *remote repository:
     1. git remote add origin git@github.com:xxx/aaa.git:
