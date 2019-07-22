@@ -38,8 +38,7 @@ a brief records about some useful operations in git.
     1. git checkout -b dev: 创建dev分支并切换到dev:
         1.1 git checkout -b dev origin/dev: 创建分支dev并与远程仓库进行关联
     2. git merge dev: 将dev分支合并到当前分支，不保留合并信息:
-        2.1 git merge --no-ff -m 'xxxx' dev: 警用fast
-        forward合并，保留合并记录，并以xxx作为提交信息
+        2.1 git merge --no-ff -m 'xxxx' dev: 警用fast forward合并，保留合并记录，并以xxx作为提交信息
     3. git branch -d dev: 删除dev分支:
         3.1 git branch: 查看dev分支
         3.2 git branch xxx: 创建xxx分支，不切换
