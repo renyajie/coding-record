@@ -41,9 +41,10 @@ a brief records about some useful operations in git.
     2. git merge dev: 将dev分支合并到当前分支，不保留合并信息:
         2.1 git merge --no-ff -m 'xxxx' dev: 警用fast forward合并，保留合并记录，并以xxx作为提交信息
     3. git branch -d dev: 删除dev分支:
-        3.1 git branch: 查看dev分支
+        3.1 git branch: 查看本地分支
         3.2 git branch xxx: 创建xxx分支，不切换
         3.3 git branch -D dev: 在未合并的情况下，强行删除dev分支
+		3.4 git branch -a: 查看本地分支和远程分支
     4. git log --graph --pretty=oneline --abbrev-commit: 查看分支合并情况:
         4.1 git log --graph --pretty=oneline: 查看分支合并图，详细一些
         4.2 git log --graph: 查看分支合并图，无删减版
@@ -57,13 +58,14 @@ a brief records about some useful operations in git.
 	tag是版本库的快照，一般很难用commit id是0dfxse...来交流，而是tag v1.xxx交流更方便
     1. git tag v1.0: 在当前分支打上v1.0的标签:
         1.1 git tag: 查看所有标签
+		1.2 git tag v0.1 abcdef: 
+			给commitId是abcdef的提交打上v0.1的标签，没有提交信息
         1.2 git tag -a v0.1 -m 'xxx' abcdef:
             给commitId是abcdef的提交打上v0.1的标签，并且提交信息为xxx
         1.3 git tag -d v0.1: 将本地的v0.1标签删除
         1.4 git push origin v1.0: 将v1.0标签推送到远端
         1.5 git push origin --tags: 将未推送的本地标签一次性全部推送到远端
         1.6 git push origin :refs/tags/v0.1: 在1.3后执行，可删除远端v0.1的标签
-
     2. git show v0.1: 查看v0.1的标签信息
 
 *git customize:
