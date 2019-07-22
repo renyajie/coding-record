@@ -54,6 +54,7 @@ a brief records about some useful operations in git.
         5.3 git stash apply stash@{0}: 恢复stash@{0}的工作现场
 
 *tag management:
+	tag是版本库的快照，一般很难用commit id是0dfxse...来交流，而是tag v1.xxx交流更方便
     1. git tag v1.0: 在当前分支打上v1.0的标签:
         1.1 git tag: 查看所有标签
         1.2 git tag -a v0.1 -m 'xxx' abcdef:
