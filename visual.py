@@ -492,5 +492,113 @@ def lesson15():
                                   interval=20, blit=False)
 
     plt.show()
+
+# 样例
+def variant_rmse_taxi():
+    '''
+    taxi variant bar for rmse
+    :return:
+    '''
+    n = 3
+    X = np.arange(n)
+    Y = [18.55,17.08,16.64]
+
+    ax = plt.gca()
+
+    # x y major label and minor label
+    # xmajorLocator = plt.MultipleLocator(1)  # set x major label as 1 times
+    # xminorLocator = plt.MultipleLocator(0.5)  # set x minor label as 0.5 times
+    # ax.xaxis.set_major_locator(xmajorLocator) # set x major locator
+    # ax.xaxis.set_minor_locator(xminorLocator)
+    # ax.xaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.xaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ymajorLocator = plt.MultipleLocator(0.5)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.25)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+    # ax.yaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.yaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ax.set_axisbelow(True) # grid below the charts
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+    plt.xlim((-1, n))
+    plt.xticks(())
+    plt.ylim(16,19)
+    plt.yticks(np.linspace(16, 19, 5), fontsize=14)
+
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
+    plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+
+    # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
+    # plt.xlabel('Method', label_font)
+    plt.xlabel('Method', fontsize=18)
+    plt.ylabel('RMSE', fontsize=18)
+
+    plt.legend(loc='best')
+    plt.savefig('D:\\figure\\v_r_taxi.png', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
+
+def len_taxi():
+    x = np.linspace(0, 7, 7)
+    global_y = [17.1, 16.64, 16.94, 17.02, 17.1, 17.2, 17.66]
+    local_y = [17.29, 17.2, 17.02, 16.94, 16.7, 17.1, 17.66]
+
+    plt.figure(figsize=(6,4))
+    ax = plt.gca()
+    ymajorLocator = plt.MultipleLocator(0.4)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+
+    plt.plot(x, global_y, color='#FF8C00', linewidth=2.0, linestyle='-',  marker='v', label='global data')
+    plt.plot(x, local_y, color='#4169E1', linewidth=2.0, linestyle='-', marker='o', label='local data')
+
+    plt.xlim((-0.5, 7.5))
+    plt.ylim((16, 18))
+    plt.xticks(np.linspace(0, 7, 8), fontsize=14)
+    plt.yticks(np.linspace(16, 18, 6), fontsize=14)
+
+    plt.xlabel('The length of data', fontsize=18)
+    plt.ylabel('RMSE', fontsize=18)
+
+    plt.legend(loc='lower right')
+    plt.savefig('D:\\figure\\l_taxi.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+
+def hyper_res():
+    x = np.linspace(0,5,5)
+    y = [17.28, 16.95, 17.07, 16.68, 17.33]
+
+    plt.figure(figsize=(6,4))
+    ax = plt.gca()
+    ymajorLocator = plt.MultipleLocator(0.4)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+
+    plt.plot(x, y, color='#4169E1', linewidth=2.0, linestyle='-',  marker='o')
+
+    plt.xlim((-0.5, 5.5))
+    plt.ylim((16.4, 17.4))
+    plt.xticks(np.linspace(0,5,5), [1, 4, 8, 12, 24], fontsize=14)
+    plt.yticks(np.linspace(16.4, 17.4, 6), fontsize=14)
+
+    plt.xlabel('The number of residual units', fontsize=18)
+    plt.ylabel('RMSE', fontsize=18)
+
+    plt.savefig('D:\\figure\\h_res.png', dpi=300, bbox_inches='tight')
+    plt.show()
+    
 if __name__ == '__main__':
     lesson15()
