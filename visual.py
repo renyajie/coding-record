@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 '''
 def lesson1():
     x = np.linspace(-3,3,50) # x范围是[-3,3]，取50个点
-    y1 = 2 *  x + 1
-    y2 = x * *  2
+    y1 = 2 * x + 1
+    y2 = x * 2
 
     plt.figure() # 之后所有的操作都属于这个fig，知道新建一个figure
     plt.plot(x, y1)
@@ -28,8 +28,8 @@ def lesson1():
 '''
 def lesson2():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y1 = 2 *  x + 1
-    y2 = x * *  2
+    y1 = 2 * x + 1
+    y2 = x * 2
 
     plt.figure() # 设置编号，窗口比例
     plt.plot(x, y2)
@@ -49,8 +49,8 @@ def lesson2():
 '''
 def lesson3():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y1 = 2 *  x + 1
-    y2 = x * *  2
+    y1 = 2 * x + 1
+    y2 = x * 2
 
     plt.figure()  # 设置编号，窗口比例
     plt.plot(x, y2)
@@ -90,8 +90,8 @@ def lesson3():
 '''
 def lesson4():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y1 = 2 *  x + 1
-    y2 = x * *  2
+    y1 = 2 * x + 1
+    y2 = x * 2
 
     plt.figure()  # 设置编号，窗口比例
     l1,=plt.plot(x, y2, label='up') # 这个label就是标记
@@ -118,7 +118,7 @@ def lesson4():
 '''
 def lesson5():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y = 2 *  x + 1
+    y = 2 * x + 1
 
     plt.figure(num=1,figsize=(8,5),)  # 设置编号，窗口比例
     plt.plot(x, y)
@@ -135,7 +135,7 @@ def lesson5():
     ax.spines['left'].set_position(('data', 0))  # 将y轴平移到x轴0的位置
 
     x0 = 1
-    y0 = 2 *  x0 + 1
+    y0 = 2 * x0 + 1
     plt.scatter(x0, y0, s=50, color='b') # 绘制点，尺寸，颜色
     plt.plot([x0,x0],[y0,0], 'k--', lw=2.5) # 绘制线段，黑色 虚线 线宽
 
@@ -160,7 +160,7 @@ def lesson5():
 '''
 def lesson6():
     x = np.linspace(-3, 3, 50)
-    y = 0.1 *  x
+    y = 0.1 * x
 
     plt.figure()
     plt.plot(x, y, linewidth=10, zorder=1)  # set zorder for ordering the plot in plt 2.0.2 or higher
@@ -233,7 +233,7 @@ def lesson8():
 def lesson9():
     def f(x, y):
         # the height function
-        return (1 - x / 2 + x * *  5 + y * *  3) *  np.exp(-x * *  2 - y * *  2)
+        return (1 - x / 2 + x ** 5 + y ** 3) *  np.exp(-x ** 2 - y ** 2)
 
     n = 256
     x = np.linspace(-3, 3, n)
@@ -287,7 +287,7 @@ def lesson11():
     X = np.arange(-4, 4, 0.25)
     Y = np.arange(-4, 4, 0.25)
     X, Y = np.meshgrid(X, Y)
-    R = np.sqrt(X * *  2 + Y * *  2)
+    R = np.sqrt(X ** 2 + Y ** 2)
     # height value
     Z = np.sin(R)
 
@@ -450,7 +450,7 @@ def lesson14():
 '''
 def lesson14():
     x = np.arange(0, 10, 0.1)
-    y1 = 0.05 *  x * *  2
+    y1 = 0.05 * x ** 2
     y2 = -1 *  y1
 
     fig, ax1 = plt.subplots()
