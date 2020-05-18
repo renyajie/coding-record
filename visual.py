@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 '''
 def lesson1():
     x = np.linspace(-3,3,50) # x范围是[-3,3]，取50个点
-    y1 = 2 * x + 1
-    y2 = x ** 2
+    y1 = 2 *  x + 1
+    y2 = x * *  2
 
     plt.figure() # 之后所有的操作都属于这个fig，知道新建一个figure
     plt.plot(x, y1)
@@ -28,8 +28,8 @@ def lesson1():
 '''
 def lesson2():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y1 = 2 * x + 1
-    y2 = x ** 2
+    y1 = 2 *  x + 1
+    y2 = x * *  2
 
     plt.figure() # 设置编号，窗口比例
     plt.plot(x, y2)
@@ -49,8 +49,8 @@ def lesson2():
 '''
 def lesson3():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y1 = 2 * x + 1
-    y2 = x ** 2
+    y1 = 2 *  x + 1
+    y2 = x * *  2
 
     plt.figure()  # 设置编号，窗口比例
     plt.plot(x, y2)
@@ -90,8 +90,8 @@ def lesson3():
 '''
 def lesson4():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y1 = 2 * x + 1
-    y2 = x ** 2
+    y1 = 2 *  x + 1
+    y2 = x * *  2
 
     plt.figure()  # 设置编号，窗口比例
     l1,=plt.plot(x, y2, label='up') # 这个label就是标记
@@ -118,7 +118,7 @@ def lesson4():
 '''
 def lesson5():
     x = np.linspace(-3, 3, 50)  # x范围是[-3,3]，取50个点
-    y = 2 * x + 1
+    y = 2 *  x + 1
 
     plt.figure(num=1,figsize=(8,5),)  # 设置编号，窗口比例
     plt.plot(x, y)
@@ -135,7 +135,7 @@ def lesson5():
     ax.spines['left'].set_position(('data', 0))  # 将y轴平移到x轴0的位置
 
     x0 = 1
-    y0 = 2 * x0 + 1
+    y0 = 2 *  x0 + 1
     plt.scatter(x0, y0, s=50, color='b') # 绘制点，尺寸，颜色
     plt.plot([x0,x0],[y0,0], 'k--', lw=2.5) # 绘制线段，黑色 虚线 线宽
 
@@ -160,7 +160,7 @@ def lesson5():
 '''
 def lesson6():
     x = np.linspace(-3, 3, 50)
-    y = 0.1 * x
+    y = 0.1 *  x
 
     plt.figure()
     plt.plot(x, y, linewidth=10, zorder=1)  # set zorder for ordering the plot in plt 2.0.2 or higher
@@ -203,8 +203,8 @@ def lesson7():
 def lesson8():
     n = 12
     X = np.arange(n)
-    Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
-    Y2 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)
+    Y1 = (1 - X / float(n)) *  np.random.uniform(0.5, 1.0, n)
+    Y2 = (1 - X / float(n)) *  np.random.uniform(0.5, 1.0, n)
 
     plt.bar(X, +Y1, facecolor='#9999ff', edgecolor='white') # 柱子的XY，背景色，边框色
     plt.bar(X, -Y2, facecolor='#ff9999', edgecolor='white')
@@ -233,7 +233,7 @@ def lesson8():
 def lesson9():
     def f(x, y):
         # the height function
-        return (1 - x / 2 + x ** 5 + y ** 3) * np.exp(-x ** 2 - y ** 2)
+        return (1 - x / 2 + x * *  5 + y * *  3) *  np.exp(-x * *  2 - y * *  2)
 
     n = 256
     x = np.linspace(-3, 3, n)
@@ -287,7 +287,7 @@ def lesson11():
     X = np.arange(-4, 4, 0.25)
     Y = np.arange(-4, 4, 0.25)
     X, Y = np.meshgrid(X, Y)
-    R = np.sqrt(X ** 2 + Y ** 2)
+    R = np.sqrt(X * *  2 + Y * *  2)
     # height value
     Z = np.sin(R)
 
@@ -296,16 +296,16 @@ def lesson11():
     ============= ================================================
             Argument      Description
             ============= ================================================
-            *X*, *Y*, *Z* Data values as 2D arrays
-            *rstride*     Array row stride (step size), defaults to 10
-            *cstride*     Array column stride (step size), defaults to 10
-            *color*       Color of the surface patches
-            *cmap*        A colormap for the surface patches.
-            *facecolors*  Face colors for the individual patches
-            *norm*        An instance of Normalize to map values to colors
-            *vmin*        Minimum value to map
-            *vmax*        Maximum value to map
-            *shade*       Whether to shade the facecolors
+            * X* , * Y* , * Z*  Data values as 2D arrays
+            * rstride*      Array row stride (step size), defaults to 10
+            * cstride*      Array column stride (step size), defaults to 10
+            * color*        Color of the surface patches
+            * cmap*         A colormap for the surface patches.
+            * facecolors*   Face colors for the individual patches
+            * norm*         An instance of Normalize to map values to colors
+            * vmin*         Minimum value to map
+            * vmax*         Maximum value to map
+            * shade*        Whether to shade the facecolors
             ============= ================================================
     """
 
@@ -315,10 +315,10 @@ def lesson11():
     ==========  ================================================
             Argument    Description
             ==========  ================================================
-            *X*, *Y*,   Data values as numpy.arrays
-            *Z*
-            *zdir*      The direction to use: x, y or z (default)
-            *offset*    If specified plot a projection of the filled contour
+            * X* , * Y* ,   Data values as numpy.arrays
+            * Z* 
+            * zdir*       The direction to use: x, y or z (default)
+            * offset*     If specified plot a projection of the filled contour
                         on this position in plane normal to zdir
             ==========  ================================================
     """
@@ -450,8 +450,8 @@ def lesson14():
 '''
 def lesson14():
     x = np.arange(0, 10, 0.1)
-    y1 = 0.05 * x ** 2
-    y2 = -1 * y1
+    y1 = 0.05 *  x * *  2
+    y2 = -1 *  y1
 
     fig, ax1 = plt.subplots()
 
@@ -473,7 +473,7 @@ def lesson15():
     from matplotlib import animation
     fig, ax = plt.subplots()
 
-    x = np.arange(0, 2 * np.pi, 0.01)
+    x = np.arange(0, 2 *  np.pi, 0.01)
     line, = ax.plot(x, np.sin(x))
 
     def animate(i):
@@ -528,7 +528,7 @@ def variant_rmse_taxi():
     plt.ylim(16,19)
     plt.yticks(np.linspace(16, 19, 5), fontsize=14)
 
-    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '* ', 'o', 'O', '.')
     plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
     plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
     plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
