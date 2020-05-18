@@ -33,6 +33,7 @@ a brief records about some useful operations in git.
 4. git remote: 查看远程库信息:
     1. git remote -v: 查看远程库信息，详细版
 5. git pull: 将远程库的当前分支的最新提交抓取下来
+    1. git pull origin master --allow-unrelated-histories 避免无关代码拉取失败
 6. git branch --set-upstream dev origin/dev: 将本地dev分支与远程库dev分支进行关联
 
 # branch management:
@@ -65,7 +66,7 @@ a brief records about some useful operations in git.
     4. git tag -d v0.1: 将本地的v0.1标签删除
     5. git push origin v1.0: 将v1.0标签推送到远端
     6. git push origin --tags: 将未推送的本地标签一次性全部推送到远端
-    7. git push origin :refs/tags/v0.1: 在1.3后执行，可删除远端v0.1的标签
+    7. git push origin --delete tag v0.1: 在3后执行，可删除远端v0.1的标签
 2. git show v0.1: 查看v0.1的标签信息
 
 # git customize:
