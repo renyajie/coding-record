@@ -415,7 +415,7 @@ def lesson13():
 '''
 14. 图中图
 '''
-def lesson14():
+def lesson131():
     fig = plt.figure()
     x = [1, 2, 3, 4, 5, 6, 7]
     y = [1, 3, 4, 2, 5, 8, 6]
@@ -539,7 +539,8 @@ def variant_rmse_taxi():
     plt.ylabel('RMSE', fontsize=18)
 
     plt.legend(loc='best')
-    plt.savefig('D:\\figure\\v_r_taxi.png', dpi=300, bbox_inches='tight')
+    plt.tight_layout()
+    # plt.savefig('D:\\figure\\v_r_taxi.png', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
@@ -570,7 +571,7 @@ def len_taxi():
     plt.ylabel('RMSE', fontsize=18)
 
     plt.legend(loc='lower right')
-    plt.savefig('D:\\figure\\l_taxi.png', dpi=300, bbox_inches='tight')
+    # plt.savefig('D:\\figure\\l_taxi.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -600,5 +601,62 @@ def hyper_res():
     plt.savefig('D:\\figure\\h_res.png', dpi=300, bbox_inches='tight')
     plt.show()
     
+def plot_mmd():
+    '''
+    画图 MMD bandwidth(0.5 1 2) sample_num 32 
+    beijing guangzhou: 6.4477948975956 0.049495148465293945 | 0.4489 0.0393
+    beijing tianjing: 9.485573235554057 0.04427947366169667 | 0.5444 0.0372
+    guangzhou tianjing: 11.171122864466383 0.047595047771296875 | 0.5908 0.0386
+    '''
+    n = 3
+    X = np.arange(n)
+    # Y = [6.4477948975956,9.485573235554057,11.171122864466383]
+    Y = [0.4489, 0.5444, 0.5908]
+
+    ax = plt.gca()
+
+    # x y major label and minor label
+    # xmajorLocator = plt.MultipleLocator(1)  # set x major label as 1 times
+    # xminorLocator = plt.MultipleLocator(0.5)  # set x minor label as 0.5 times
+    # ax.xaxis.set_major_locator(xmajorLocator) # set x major locator
+    # ax.xaxis.set_minor_locator(xminorLocator)
+    # ax.xaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.xaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    # ymajorLocator = plt.MultipleLocator(0.5)  # set y major label as 0.5 times
+    # yminorLocator = plt.MultipleLocator(0.25)  # set y minor label as 0.25 times
+    # ax.yaxis.set_major_locator(ymajorLocator)
+    # ax.yaxis.set_minor_locator(yminorLocator)
+    # ax.yaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.yaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    # ax.set_axisbelow(True) # grid below the charts
+
+    # plt.grid(axis="both", linestyle='--', which='minor')
+    plt.xlim((-1, n))
+    plt.xticks([0, 1, 2], ['BJ->GZ', 'BJ->TJ', 'GZ->TJ'], fontsize=14)
+    plt.ylim(0,0.62)
+    plt.yticks(np.linspace(0, 0.60, 13), fontsize=14)
+
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '* ', 'o', 'O', '.')
+    plt.bar(X[0], Y[0], width=0.8, color='#FFA500', edgecolor='w', label="BJ->GZ", alpha=0.8)#, hatch="--",)
+    plt.bar(X[1], Y[1], width=0.8, color='#32CD32', edgecolor='w', label="BJ-TJ", alpha=0.8)#, hatch="///")
+    plt.bar(X[2], Y[2], width=0.8, color='#6495ED', edgecolor='w', label="GZ-TJ", alpha=0.8)#, hatch="\\\\\\")
+
+    plt.plot([-0.38, 0.38], [0.0393,0.0393], color='black', linewidth=2.0, linestyle='-')
+    plt.plot([0.62, 1.38], [0.0372,0.0372], color='black', linewidth=2.0, linestyle='-')
+    plt.plot([1.62, 2.38], [0.0386,0.0386], color='black', linewidth=2.0, linestyle='-')
+
+    # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
+    # plt.xlabel('Method', label_font)
+    plt.xlabel('City pair', fontsize=18)
+    plt.ylabel('$MMD$', fontsize=18)
+
+    plt.legend(loc='best')
+    plt.tight_layout()
+    plt.savefig('D:\\研究生\\科研\\方案\\cdp\\figure\\mmd_city_data.png', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
 if __name__ == '__main__':
-    lesson15()
+    plot_mmd()
