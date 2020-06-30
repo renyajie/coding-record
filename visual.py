@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter, MultipleLocator
 
 # 画图步骤
 # 1. 定义x, y数据
@@ -502,7 +503,7 @@ def variant_rmse_taxi():
     n = 3
     X = np.arange(n)
     Y = [18.55,17.08,16.64]
-
+    plt.figure(1, figsize=(5, 5))
     ax = plt.gca()
 
     # x y major label and minor label
@@ -514,7 +515,7 @@ def variant_rmse_taxi():
     # ax.xaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
 
     ymajorLocator = plt.MultipleLocator(0.5)  # set y major label as 0.5 times
-    yminorLocator = plt.MultipleLocator(0.25)  # set y minor label as 0.25 times
+    yminorLocator = plt.MultipleLocator(0.5)  # set y minor label as 0.25 times
     ax.yaxis.set_major_locator(ymajorLocator)
     ax.yaxis.set_minor_locator(yminorLocator)
     # ax.yaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
@@ -526,34 +527,33 @@ def variant_rmse_taxi():
     plt.xlim((-1, n))
     plt.xticks(())
     plt.ylim(16,19)
-    plt.yticks(np.linspace(16, 19, 5), fontsize=14)
+    plt.yticks(np.linspace(16, 19, 7), fontsize=18)
 
-    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '* ', 'o', 'O', '.')
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
     plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
     plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
     plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
 
     # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
     # plt.xlabel('Method', label_font)
-    plt.xlabel('Method', fontsize=18)
-    plt.ylabel('RMSE', fontsize=18)
+    plt.xlabel('Method', fontsize=24)
+    plt.ylabel('RMSE', fontsize=24)
 
-    plt.legend(loc='best')
-    plt.tight_layout()
-    # plt.savefig('D:\\figure\\v_r_taxi.png', dpi=300, bbox_inches='tight')
+    plt.legend(loc='best', fontsize=13)
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_r_taxi.pdf', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
 
 def len_taxi():
-    x = np.linspace(0, 7, 7)
+    x = np.linspace(1, 7, 7)
     global_y = [17.1, 16.64, 16.94, 17.02, 17.1, 17.2, 17.66]
     local_y = [17.29, 17.2, 17.02, 16.94, 16.7, 17.1, 17.66]
 
     plt.figure(figsize=(6,4))
     ax = plt.gca()
     ymajorLocator = plt.MultipleLocator(0.4)  # set y major label as 0.5 times
-    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    yminorLocator = plt.MultipleLocator(0.4)  # set y minor label as 0.25 times
     ax.yaxis.set_major_locator(ymajorLocator)
     ax.yaxis.set_minor_locator(yminorLocator)
 
@@ -562,18 +562,17 @@ def len_taxi():
     plt.plot(x, global_y, color='#FF8C00', linewidth=2.0, linestyle='-',  marker='v', label='global data')
     plt.plot(x, local_y, color='#4169E1', linewidth=2.0, linestyle='-', marker='o', label='local data')
 
-    plt.xlim((-0.5, 7.5))
+    plt.xlim((0.5, 7.5))
     plt.ylim((16, 18))
-    plt.xticks(np.linspace(0, 7, 8), fontsize=14)
-    plt.yticks(np.linspace(16, 18, 6), fontsize=14)
+    plt.xticks(np.linspace(1, 7, 7), fontsize=18)
+    plt.yticks(np.linspace(15.6, 18, 7), fontsize=18)
 
-    plt.xlabel('The length of data', fontsize=18)
-    plt.ylabel('RMSE', fontsize=18)
+    plt.xlabel('The length of data', fontsize=24)
+    plt.ylabel('RMSE', fontsize=24)
 
-    plt.legend(loc='lower right')
-    # plt.savefig('D:\\figure\\l_taxi.png', dpi=300, bbox_inches='tight')
+    plt.legend(loc='lower right', fontsize=13)
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\l_taxi.pdf', dpi=300, bbox_inches='tight')
     plt.show()
-
 
 def hyper_res():
     x = np.linspace(0,5,5)
@@ -592,13 +591,216 @@ def hyper_res():
 
     plt.xlim((-0.5, 5.5))
     plt.ylim((16.4, 17.4))
-    plt.xticks(np.linspace(0,5,5), [1, 4, 8, 12, 24], fontsize=14)
-    plt.yticks(np.linspace(16.4, 17.4, 6), fontsize=14)
+    plt.xticks(np.linspace(0,5,5), [1, 4, 8, 12, 24], fontsize=18)
+    plt.yticks(np.linspace(16.4, 17.4, 6), fontsize=18)
 
-    plt.xlabel('The number of residual units', fontsize=18)
-    plt.ylabel('RMSE', fontsize=18)
+    plt.xlabel('The number of residual units', fontsize=24)
+    plt.ylabel('RMSE', fontsize=24)
 
-    plt.savefig('D:\\figure\\h_res.png', dpi=300, bbox_inches='tight')
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\h_res.pdf', dpi=300, bbox_inches='tight')
+    plt.show()
+
+def variant_rmse_bike():
+    '''
+    taxi variant bar for rmse
+    :return:
+    '''
+    n = 3
+    X = np.arange(n)
+    Y = [5.91,5.61,5.46]
+
+    plt.figure(1, figsize=(5, 5))
+    ax = plt.gca()
+
+    # x y major label and minor label
+    # xmajorLocator = plt.MultipleLocator(1)  # set x major label as 1 times
+    # xminorLocator = plt.MultipleLocator(0.5)  # set x minor label as 0.5 times
+    # ax.xaxis.set_major_locator(xmajorLocator) # set x major locator
+    # ax.xaxis.set_minor_locator(xminorLocator)
+    # ax.xaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.xaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ymajorLocator = plt.MultipleLocator(0.2)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+    # ax.yaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.yaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ax.set_axisbelow(True) # grid below the charts
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+    plt.xlim((-1, n))
+    plt.xticks(())
+    plt.ylim(5,6.2)
+    plt.yticks(np.linspace(5, 6.2, 7), fontsize=18)
+
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
+    plt.bar(X[0], Y[0], color='#228B22', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#2E8B57', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#3CB371', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+
+    # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
+    # plt.xlabel('Method', label_font)
+    plt.xlabel('Method', fontsize=24)
+    plt.ylabel('RMSE', fontsize=24)
+
+    plt.legend(loc='best', fontsize=13)
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_r_bike.pdf', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
+def variant_mae_taxi():
+    '''
+    taxi variant bar for rmse
+    :return:
+    '''
+    n = 3
+    X = np.arange(n)
+    Y = [15.16,14.95,14.57]
+    plt.figure(1, figsize=(5, 5))
+    ax = plt.gca()
+
+    # x y major label and minor label
+    # xmajorLocator = plt.MultipleLocator(1)  # set x major label as 1 times
+    # xminorLocator = plt.MultipleLocator(0.5)  # set x minor label as 0.5 times
+    # ax.xaxis.set_major_locator(xmajorLocator) # set x major locator
+    # ax.xaxis.set_minor_locator(xminorLocator)
+    # ax.xaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.xaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ymajorLocator = plt.MultipleLocator(0.2)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+    # ax.yaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.yaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ax.set_axisbelow(True) # grid below the charts
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+    plt.xlim((-1, n))
+    plt.xticks(())
+    plt.ylim(14.2,15.4)
+    plt.yticks(np.linspace(14.2, 15.4, 7), fontsize=18)
+
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
+    plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+
+    # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
+    # plt.xlabel('Method', label_font)
+    plt.xlabel('Method', fontsize=24)
+    plt.ylabel('MAE', fontsize=24)
+
+    plt.legend(loc='best', fontsize=13)
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_m_taxi.pdf', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
+def variant_mae_bike():
+    '''
+    taxi variant bar for rmse
+    :return:
+    '''
+    n = 3
+    X = np.arange(n)
+    Y = [4.55,4.43,4.24]
+
+    plt.figure(1, figsize=(5, 5))
+    ax = plt.gca()
+
+    # x y major label and minor label
+    # xmajorLocator = plt.MultipleLocator(1)  # set x major label as 1 times
+    # xminorLocator = plt.MultipleLocator(0.5)  # set x minor label as 0.5 times
+    # ax.xaxis.set_major_locator(xmajorLocator) # set x major locator
+    # ax.xaxis.set_minor_locator(xminorLocator)
+    # ax.xaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.xaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ymajorLocator = plt.MultipleLocator(0.1)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.1)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+    # ax.yaxis.set_major_formatter(FormatStrFormatter('%5.1f'))
+    # ax.yaxis.set_minor_formatter(FormatStrFormatter('%5.1f'))
+
+    ax.set_axisbelow(True) # grid below the charts
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+    plt.xlim((-1, n))
+    plt.xticks(())
+    plt.ylim(4.1,4.7)
+    plt.yticks(np.linspace(4.1, 4.7, 7), fontsize=18)
+
+    # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
+    plt.bar(X[0], Y[0], color='#228B22', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#2E8B57', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#3CB371', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+
+    # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
+    # plt.xlabel('Method', label_font)
+    plt.xlabel('Method', fontsize=24)
+    plt.ylabel('MAE', fontsize=24)
+
+    plt.legend(loc='best', fontsize=13)
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_m_bike.pdf', dpi=300, bbox_inches='tight')
+    plt.show()
+
+def len_bike():
+    x = np.linspace(1, 7, 7)
+    global_y = [5.82,5.32,5.14,5.21,5.27,5.32,5.45]
+    local_y = [5.86,5.67,5.4,5.27,5.14,5.34,5.45]
+
+    plt.figure(figsize=(6,4))
+    ax = plt.gca()
+    ymajorLocator = plt.MultipleLocator(0.2)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+
+    plt.plot(x, global_y, color='#FF8C00', linewidth=2.0, linestyle='-',  marker='v', label='global data')
+    plt.plot(x, local_y, color='#4169E1', linewidth=2.0, linestyle='-', marker='o', label='local data')
+
+    plt.xlim((0.5, 7.5))
+    plt.ylim((4.8, 6))
+    plt.xticks(np.linspace(1, 7, 7), fontsize=18)
+    plt.yticks(np.linspace(4.8, 6, 7), fontsize=18)
+
+    plt.xlabel('The length of data', fontsize=24)
+    plt.ylabel('RMSE', fontsize=24)
+
+    plt.legend(loc='lower right', fontsize=13)
+    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\l_bike.pdf', dpi=300, bbox_inches='tight')
+    plt.show()
+
+def hyper_cnn():
+    x = np.linspace(0,6,6)
+    y = [17.48,17.32,16.69,16.78,17.24,17.42]
+
+    plt.figure(figsize=(6,4))
+    ax = plt.gca()
+    ymajorLocator = plt.MultipleLocator(0.2)  # set y major label as 0.5 times
+    yminorLocator = plt.MultipleLocator(0.2)  # set y minor label as 0.25 times
+    ax.yaxis.set_major_locator(ymajorLocator)
+    ax.yaxis.set_minor_locator(yminorLocator)
+
+    plt.grid(axis="both", linestyle='--', which='minor')
+
+    plt.plot(x, y, color='#000000', linewidth=2.0, linestyle='-',  marker='o')
+
+    plt.xlim((-0.5, 6.5))
+    plt.ylim((16.6, 17.6))
+    plt.xticks(np.linspace(0, 6, 6), [2, 4, 6, 8, 10, 12], fontsize=18)
+    plt.yticks(np.linspace(16.6, 17.6, 6), fontsize=18)
+
+    plt.xlabel('The number of convolution layers', fontsize=24)
+    plt.ylabel('RMSE', fontsize=24)
+
+    # plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\h_cnn.pdf', dpi=300, bbox_inches='tight')
     plt.show()
     
 def plot_mmd():
@@ -654,7 +856,7 @@ def plot_mmd():
 
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.savefig('D:\\研究生\\科研\\方案\\cdp\\figure\\mmd_city_data.png', dpi=300, bbox_inches='tight')
+    plt.savefig('E:\\研究生\\方案\\cdp\\figure\\mmd_city_data.png', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
