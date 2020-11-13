@@ -530,9 +530,9 @@ def variant_rmse_taxi():
     plt.yticks(np.linspace(16, 19, 7), fontsize=18)
 
     # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
-    plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
-    plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
-    plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+    plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="GL-TCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="GL-TCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="GL-TCN", alpha=0.8)
 
     # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
     # plt.xlabel('Method', label_font)
@@ -540,7 +540,7 @@ def variant_rmse_taxi():
     plt.ylabel('RMSE', fontsize=24)
 
     plt.legend(loc='best', fontsize=13)
-    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_r_taxi.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(r'D:\研究生\科研\方案和写作\写作：stgln\ieee-stgln\figure\v_r_taxi.pdf', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
@@ -636,9 +636,9 @@ def variant_rmse_bike():
     plt.yticks(np.linspace(5, 6.2, 7), fontsize=18)
 
     # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
-    plt.bar(X[0], Y[0], color='#228B22', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
-    plt.bar(X[1], Y[1], color='#2E8B57', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
-    plt.bar(X[2], Y[2], color='#3CB371', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+    plt.bar(X[0], Y[0], color='#228B22', edgecolor='k', hatch="--", label="GL-TCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#2E8B57', edgecolor='k', hatch="///", label="GL-TCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#3CB371', edgecolor='k', hatch="\\\\\\", label="GL-TCN", alpha=0.8)
 
     # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
     # plt.xlabel('Method', label_font)
@@ -646,7 +646,7 @@ def variant_rmse_bike():
     plt.ylabel('RMSE', fontsize=24)
 
     plt.legend(loc='best', fontsize=13)
-    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_r_bike.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(r'D:\研究生\科研\方案和写作\写作：stgln\ieee-stgln\figure\v_r_bike.pdf', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
@@ -685,9 +685,9 @@ def variant_mae_taxi():
     plt.yticks(np.linspace(14.2, 15.4, 7), fontsize=18)
 
     # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
-    plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
-    plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
-    plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+    plt.bar(X[0], Y[0], color='#2E75B6', edgecolor='k', hatch="--", label="GL-TCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#4169E1', edgecolor='k', hatch="///", label="GL-TCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="GL-TCN", alpha=0.8)
 
     # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
     # plt.xlabel('Method', label_font)
@@ -695,7 +695,7 @@ def variant_mae_taxi():
     plt.ylabel('MAE', fontsize=24)
 
     plt.legend(loc='best', fontsize=13)
-    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_m_taxi.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(r'D:\研究生\科研\方案和写作\写作：stgln\ieee-stgln\figure\v_m_taxi.pdf', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
@@ -735,9 +735,9 @@ def variant_mae_bike():
     plt.yticks(np.linspace(4.1, 4.7, 7), fontsize=18)
 
     # hatch pattern ('/','//','-', '+', 'x', '\\', '\\\\', '*', 'o', 'O', '.')
-    plt.bar(X[0], Y[0], color='#228B22', edgecolor='k', hatch="--", label="ST-GLTCN-min", alpha=0.8)
-    plt.bar(X[1], Y[1], color='#2E8B57', edgecolor='k', hatch="///", label="ST-GLTCN-nog", alpha=0.8)
-    plt.bar(X[2], Y[2], color='#3CB371', edgecolor='k', hatch="\\\\\\", label="ST-GLTCN", alpha=0.8)
+    plt.bar(X[0], Y[0], color='#228B22', edgecolor='k', hatch="--", label="GL-TCN-min", alpha=0.8)
+    plt.bar(X[1], Y[1], color='#2E8B57', edgecolor='k', hatch="///", label="GL-TCN-nog", alpha=0.8)
+    plt.bar(X[2], Y[2], color='#3CB371', edgecolor='k', hatch="\\\\\\", label="GL-TCN", alpha=0.8)
 
     # label_font = {'family': 'Times New Roman', 'weight': 'bold', 'size': 18,}
     # plt.xlabel('Method', label_font)
@@ -745,7 +745,7 @@ def variant_mae_bike():
     plt.ylabel('MAE', fontsize=24)
 
     plt.legend(loc='best', fontsize=13)
-    plt.savefig('E:\\研究生\\科研\方案\\stgln\\ieee-stgln\\figure\\v_m_bike.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(r'D:\研究生\科研\方案和写作\写作：stgln\ieee-stgln\figure\v_m_bike.pdf', dpi=300, bbox_inches='tight')
     plt.show()
 
 def len_bike():
@@ -944,7 +944,7 @@ def variant_netl_rmse_4():
     plt.bar(X[0], Y[0], color='#FFA500', edgecolor='k', hatch="--", label="ACDAN-min", alpha=0.8)
     plt.bar(X[1], Y[1], color='#32CD32', edgecolor='k', hatch="///", label="ACDAN-sa", alpha=0.8)
     plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ACDAN", alpha=0.8)
-    plt.bar(X[3], Y[3], color='#696969', edgecolor='k', hatch="...", label="ACDAN-wd", alpha=0.8)
+    plt.bar(X[3], Y[3], color='#696969', edgecolor='k', hatch="...", label="ACDAN-nod", alpha=0.8)
 
     plt.bar(X[4], Y[4], color='#FFA500', edgecolor='k', hatch="--", alpha=0.8)
     plt.bar(X[5], Y[5], color='#32CD32', edgecolor='k', hatch="///", alpha=0.8)
@@ -1049,7 +1049,7 @@ def variant_netl_ndcg_4():
     plt.bar(X[0], Y[0], color='#FFA500', edgecolor='k', hatch="--", label="ACDAN-min", alpha=0.8)
     plt.bar(X[1], Y[1], color='#32CD32', edgecolor='k', hatch="///", label="ACDAN-sa", alpha=0.8)
     plt.bar(X[2], Y[2], color='#6495ED', edgecolor='k', hatch="\\\\\\", label="ACDAN", alpha=0.8)
-    plt.bar(X[3], Y[3], color='#696969', edgecolor='k', hatch="...", label="ACDAN-wd", alpha=0.8)
+    plt.bar(X[3], Y[3], color='#696969', edgecolor='k', hatch="...", label="ACDAN-nod", alpha=0.8)
 
     plt.bar(X[4], Y[4], color='#FFA500', edgecolor='k', hatch="--", alpha=0.8)
     plt.bar(X[5], Y[5], color='#32CD32', edgecolor='k', hatch="///", alpha=0.8)
@@ -1133,4 +1133,4 @@ def alpha_netl_rmse():
     plt.show()
 
 if __name__ == '__main__':
-    variant_netl_rmse_4()
+    variant_rmse_taxi()
