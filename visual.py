@@ -1279,16 +1279,16 @@ def tanh():
     plt.show()
     pass
 
-def leakrelu():
+def leakyrelu():
     import numpy as np
     import matplotlib.pyplot as plt
     import matplotlib.ticker as mtick
     x = np.linspace(-15, 15, 1500)
-    leakrelu = np.zeros(1500)
+    leakyrelu = np.zeros(1500)
     for i in range(750, 1500):
-        leakrelu[i] = x[i]
+        leakyrelu[i] = x[i]
     for i in range(0,750):
-        leakrelu[i] = 0.1 * x[i]
+        leakyrelu[i] = 0.1 * x[i]
 
     plt.figure()
     ax = plt.subplot(111)  # 保留两位小数
@@ -1297,15 +1297,15 @@ def leakrelu():
     plt.yticks(fontsize=14)
 
     #plt.plot(x, sigmod, '--')
-    plt.plot(x, leakrelu, '-', c='b')
-    plt.legend(["Leak ReLU"],fontsize=14)
+    plt.plot(x, leakyrelu, '-', c='b')
+    plt.legend(["Leaky ReLU"],fontsize=14)
     plt.grid()
-    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\leakrelu.jpg', dpi=300, bbox_inches='tight')
+    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\leakyrelu.jpg', dpi=300, bbox_inches='tight')
     plt.show()
     pass
 
 if __name__ == '__main__':
     #relu()
-    sigmoid()
+    #sigmoid()
     #tanh()
-    #leakrelu()
+    leakyrelu()
