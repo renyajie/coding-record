@@ -6,6 +6,17 @@
 
 * error: cannot spawn less: No such file or directory
     window上没有less指令，git默认使用less进行分页显示，执行下面这个命令，用cat来分页
+    
     ```
     git config --global core.pager cat
     ```
+
+* error: refs/heads/t_1140 does not point to a valid object!
+
+  当移除一些旧的branch或是tags，可以用下面这个脚本
+
+  ```bash
+  git for-each-ref --format="%(refname)" | while read ref; do
+      git show-ref --quiet --verify $ref 2>/dev/null || git update-ref -d $ref
+  done
+  ```

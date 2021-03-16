@@ -2,7 +2,11 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
+<<<<<<< HEAD
 /dataSources/
+=======
+/../../../../:\Code\coding-record\.idea/dataSources/
+>>>>>>> de517d5e2542c8a29ecdb39b3e39c4eaa97dc886
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
