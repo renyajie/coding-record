@@ -1020,5 +1020,180 @@ def alpha_netl_rmse():
     plt.savefig('E:\\研究生\\方案和写作\\写作：acdan\\figure\\alpha_rmse.png', dpi=300, bbox_inches='tight')
     plt.show()
 
+
+def tsne_example():
+    from time import time
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from matplotlib import offsetbox
+    from sklearn import (manifold, datasets, decomposition, ensemble,
+                         discriminant_analysis, random_projection)
+    digits = datasets.load_digits(n_class=10)  # 导入数据集
+    X = digits.data
+    y = digits.target
+    n_samples, n_features = X.shape
+    n_neighbors = 30
+
+
+
+    color_list=['purple','red','blue','navy','orange','gray',
+                'black','plum','gold','darkgreen','seagreen']
+
+    def plot_embedding(X, title=None):
+        x_min, x_max = np.min(X, 0), np.max(X, 0)
+        X = (X - x_min) / (x_max - x_min)
+        plt.figure()
+        ax = plt.subplot(111)
+
+        #去掉边框
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.spines['bottom'].set_visible(False)
+        ax.spines['left'].set_visible(False)
+
+        for i in range(X.shape[0]):
+            plt.text(X[i, 0], X[i, 1], str(digits.target[i]),
+                     #color=plt.cm.Set3(y[i]/10),
+                     color=color_list[y[i]],
+                     fontdict={'weight': 'bold', 'size': 11})
+        if hasattr(offsetbox, 'AnnotationBbox'):  # (用于判断对象是否包含对应的属性)
+            shown_images = np.array([[1., 1.]])
+        # for i in range(digits.data.shape[0]):
+        #     dist = np.sum((X[i] - shown_images) ** 2, 1)
+        #     if np.min(dist) < 4e-3:
+        #         continue
+        #     shown_images = np.r_[shown_images, [X[i]]]  # 按列连接两个矩阵，就是把两矩阵上下相加，要求列数相等
+        #     imagebox = offsetbox.AnnotationBbox(
+        #         offsetbox.OffsetImage(digits.images[i], cmap=plt.cm.gray_r),
+        #         X[i])
+        # ax.add_artist(imagebox)
+        plt.xticks([]), plt.yticks([])
+        if title is not None:
+            plt.title(title)
+
+        plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\tsne_example.jpg', dpi=300, bbox_inches='tight')
+        plt.show()
+
+    # ----------------------------------------------------------------------
+
+    n_img_per_row = 15
+    img = np.zeros((10 * n_img_per_row, 10 * n_img_per_row))
+    for i in range(n_img_per_row):
+        ix = 10 * i + 1
+        for j in range(n_img_per_row):
+            iy = 10 * j + 1
+            img[ix:ix + 8, iy:iy + 8] = X[i * n_img_per_row + j].reshape((8, 8))
+    plt.imshow(img, cmap=plt.cm.binary)
+    plt.xticks([])
+    plt.yticks([])
+    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\tsne_digit.jpg', dpi=300, bbox_inches='tight')
+    # plt.title('A selection from the 64-dimensional digits dataset')
+    # 计算PCA
+    # print("Computing PCA projection")
+    # t0 = time()
+    # X_pca = decomposition.TruncatedSVD(n_components=2).fit_transform(X)
+    # plot_embedding(X_pca,
+    #               "Principal Components projection of the digits (time %.2fs)" %
+    #               (time() - t0))
+    # 计算t-SNE
+    print("Computing t-SNE embedding")
+    tsne = manifold.TSNE(n_components=2, init='pca', random_state=0)
+    # t0 = time()
+    X_tsne = tsne.fit_transform(X)
+    plot_embedding(X_tsne)#,"t-SNE embedding of the digits (time %.2fs)" % (time() - t0))
+
+    pass
+
+def relu():
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mtick
+    x = np.linspace(-15, 15, 1500)
+    relu = np.zeros(1500)
+    for i in range(750, 1500):
+        relu[i] = x[i]
+
+    plt.figure()
+    ax = plt.subplot(111) #保留两位小数
+    ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2f'))
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    #plt.plot(x, sigmod, '--')
+    plt.plot(x, relu, '-', c='b')
+    plt.legend(["ReLU"],fontsize=14)
+    plt.grid()
+    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\relu.jpg', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
+def sigmoid():
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mtick
+    x = np.linspace(-15, 15, 1500)
+    sigmoid = 1 / (1 + np.exp(-x))
+
+    plt.figure()
+    ax = plt.subplot(111)  # 保留两位小数
+    ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2f'))
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    plt.plot(x, sigmoid, '-', c='b')
+    plt.legend(["Sigmoid"],fontsize=14)
+    plt.grid()
+    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\sigmoid.jpg', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
+def tanh():
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mtick
+    x = np.linspace(-15, 15, 1500)
+    tanh = (np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x))
+
+    plt.figure()
+    ax = plt.subplot(111)  # 保留两位小数
+    ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2f'))
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    plt.plot(x, tanh, '-', c='b')
+    plt.legend(["Tanh"],fontsize=14)
+    plt.grid()
+    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\tanh.jpg', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
+def leakrelu():
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mtick
+    x = np.linspace(-15, 15, 1500)
+    leakrelu = np.zeros(1500)
+    for i in range(750, 1500):
+        leakrelu[i] = x[i]
+    for i in range(0,750):
+        leakrelu[i] = 0.1 * x[i]
+
+    plt.figure()
+    ax = plt.subplot(111)  # 保留两位小数
+    ax.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2f'))
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    #plt.plot(x, sigmod, '--')
+    plt.plot(x, leakrelu, '-', c='b')
+    plt.legend(["Leak ReLU"],fontsize=14)
+    plt.grid()
+    plt.savefig('E:\\研究生\\毕业论文\\毕业论文\\图\\leakrelu.jpg', dpi=300, bbox_inches='tight')
+    plt.show()
+    pass
+
 if __name__ == '__main__':
-    alpha_netl_ndcg()
+    #relu()
+    sigmoid()
+    #tanh()
+    #leakrelu()
