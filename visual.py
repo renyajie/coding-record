@@ -1305,11 +1305,7 @@ def leakrelu():
     pass
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     #relu()
     sigmoid()
     #tanh()
     #leakrelu()
-=======
-    variant_rmse_taxi()
->>>>>>> de517d5e2542c8a29ecdb39b3e39c4eaa97dc886
